@@ -29,6 +29,7 @@ func main() {
 		api.RegisterGatewayServer(grpcServer, server.NewGatewayServer(ctx))
 
 		if c.Mode == service.DevMode || c.Mode == service.TestMode {
+			fmt.Println("dd")
 			reflection.Register(grpcServer)
 		}
 	})

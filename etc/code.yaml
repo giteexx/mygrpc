@@ -1,6 +1,8 @@
-Name: code.rpc
+Name: codeRpc/one
 ListenOn: 0.0.0.0:8080
+Timeout: 15000
 Etcd:
   Hosts:
   - 127.0.0.1:2379
-  Key: code.rpc
+  Key: codeRpc/one
+  
