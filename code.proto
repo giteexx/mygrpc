@@ -10,7 +10,7 @@ service Gateway {
   rpc GetCode (WayRequest) returns (CodeReply) {}
   rpc CodeFeed (WayRequest) returns (EmptyReply) {}
   rpc PhoneFeed (WayRequest) returns (EmptyReply) {}
-  rpc Release (WayRequest) returns (EmptyReply) {}//订单过期都会调用此服务
+  rpc Rrelease (WayRequest) returns (EmptyReply) {}//订单过期都会调用此服务
 }
 
 message EmptyReply {

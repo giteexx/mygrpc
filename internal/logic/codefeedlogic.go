@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 
+	"github.com/giteexx/mygrpc/api"
 	"github.com/giteexx/mygrpc/internal/svc"
-	"github.com/giteexx/mygrpc/pb/api"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

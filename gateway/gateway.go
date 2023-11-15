@@ -6,7 +6,7 @@ package gateway
 import (
 	"context"
 
-	"github.com/giteexx/mygrpc/pb/api"
+	"github.com/giteexx/mygrpc/api"
 
 	"github.com/zeromicro/go-zero/zrpc"
 	"google.golang.org/grpc"
@@ -29,7 +29,7 @@ type (
 		GetCode(ctx context.Context, in *WayRequest, opts ...grpc.CallOption) (*CodeReply, error)
 		CodeFeed(ctx context.Context, in *WayRequest, opts ...grpc.CallOption) (*EmptyReply, error)
 		PhoneFeed(ctx context.Context, in *WayRequest, opts ...grpc.CallOption) (*EmptyReply, error)
-		Release(ctx context.Context, in *WayRequest, opts ...grpc.CallOption) (*EmptyReply, error)
+		Rrelease(ctx context.Context, in *WayRequest, opts ...grpc.CallOption) (*EmptyReply, error)
 	}
 
 	defaultGateway struct {
@@ -73,7 +73,7 @@ func (m *defaultGateway) PhoneFeed(ctx context.Context, in *WayRequest, opts ...
 	return client.PhoneFeed(ctx, in, opts...)
 }
 
-func (m *defaultGateway) Release(ctx context.Context, in *WayRequest, opts ...grpc.CallOption) (*EmptyReply, error) {
+func (m *defaultGateway) Rrelease(ctx context.Context, in *WayRequest, opts ...grpc.CallOption) (*EmptyReply, error) {
 	client := api.NewGatewayClient(m.cli.Conn())
-	return client.Release(ctx, in, opts...)
+	return client.Rrelease(ctx, in, opts...)
 }

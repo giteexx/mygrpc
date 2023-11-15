@@ -9,21 +9,21 @@ import (
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
-type PhoneFeedLogic struct {
+type RreleaseLogic struct {
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 	logx.Logger
 }
 
-func NewPhoneFeedLogic(ctx context.Context, svcCtx *svc.ServiceContext) *PhoneFeedLogic {
-	return &PhoneFeedLogic{
+func NewRreleaseLogic(ctx context.Context, svcCtx *svc.ServiceContext) *RreleaseLogic {
+	return &RreleaseLogic{
 		ctx:    ctx,
 		svcCtx: svcCtx,
 		Logger: logx.WithContext(ctx),
 	}
 }
 
-func (l *PhoneFeedLogic) PhoneFeed(in *api.WayRequest) (*api.EmptyReply, error) {
+func (l *RreleaseLogic) Rrelease(in *api.WayRequest) (*api.EmptyReply, error) {
 	// todo: add your logic here and delete this line
 
 	return &api.EmptyReply{}, nil

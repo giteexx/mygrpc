@@ -6,9 +6,9 @@ package server
 import (
 	"context"
 
+	"github.com/giteexx/mygrpc/api"
 	"github.com/giteexx/mygrpc/internal/logic"
 	"github.com/giteexx/mygrpc/internal/svc"
-	"github.com/giteexx/mygrpc/pb/api"
 )
 
 type GatewayServer struct {
@@ -52,7 +52,7 @@ func (s *GatewayServer) PhoneFeed(ctx context.Context, in *api.WayRequest) (*api
 	return l.PhoneFeed(in)
 }
 
-func (s *GatewayServer) Release(ctx context.Context, in *api.WayRequest) (*api.EmptyReply, error) {
-	l := logic.NewReleaseLogic(ctx, s.svcCtx)
-	return l.Release(in)
+func (s *GatewayServer) Rrelease(ctx context.Context, in *api.WayRequest) (*api.EmptyReply, error) {
+	l := logic.NewRreleaseLogic(ctx, s.svcCtx)
+	return l.Rrelease(in)
 }

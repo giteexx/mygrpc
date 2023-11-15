@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 
+	"github.com/giteexx/mygrpc/api"
 	"github.com/giteexx/mygrpc/internal/config"
 	"github.com/giteexx/mygrpc/internal/server"
 	"github.com/giteexx/mygrpc/internal/svc"
-	"github.com/giteexx/mygrpc/pb/api"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/service"
