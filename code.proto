@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package api;
+option go_package="./api";
+
+service Gateway {
+  rpc GetBalance (WayRequest) returns (BalanceReply) {}
+  rpc UsePhone (WayRequest) returns (PhoneReply) {}
+  rpc GetPhone (WayRequest) returns (PhoneReply) {}
+  rpc GetCode (WayRequest) returns (CodeReply) {}
+  rpc CodeFeed (WayRequest) returns (EmptyReply) {}
+  rpc PhoneFeed (WayRequest) returns (EmptyReply) {}
+  rpc Release (WayRequest) returns (EmptyReply) {}//订单过期都会调用此服务
+}
+
+message EmptyReply {
+    string message = 1;
+}
+
+message BalanceReply {
+    string data = 1;
+}
+
+message PhoneReply {
+    string phone = 1;
+    string outTradeNo = 2;
+    string account = 3;
+}
+
+message CodeReply {
+    string code = 1;
+}
+
+//上游参数
+message ChannelInfo {
+    string username = 1;
+	string password = 2;
+	string enVal = 3; //上游项目值
+	string apikey = 4;
+	string other = 5;
+	string name = 6; //
+	string apiUrl = 7;
+	string code = 8;//
+}
+
+//订单参数
+message OrderField {
+    uint64 id = 1;
+	string outTradeNo = 2;
+	uint64 expTime = 3;
+	string phone = 4;     
+}
+
+//API请求参数
+message ApiField{
+    int32 codefeed = 1; //取码反馈
+    int32 phonefeed = 2; //取号反馈
+    int32 pid = 3;
+    string phone = 4;//请求的手机号
+}
+
+message WayRequest {
+    ChannelInfo channelInfo = 1;
+    OrderField orderField = 2;
+    ApiField apiField = 3;
+}
